@@ -1,8 +1,10 @@
 " start pathogen
+runtime bundle/pathogen.vim/pathogen.vim
 execute pathogen#infect()
 
 " plugins installed
 " ctrlp.vim
+" dbext.vim
 " lightline.vim
 " nerdtree.vim
 " nerdtree-tabs.vim
@@ -142,7 +144,6 @@ vnoremap <leader>s :sort<CR>
 " lightline start
 set laststatus=2
 
-" custom remaps
 " auto replace word in normal mode
 nnoremap <leader>r *``cgn
 " auto replace selection in visual mode
