@@ -1,17 +1,13 @@
-set rtp+=~/.vim/bundle/Vundle.vim
-call vundle#begin()
+" start pathogen
+execute pathogen#infect()
 
-Plugin 'VundleVim/Vundle.vim' 
-Plugin 'itchyny/lightline.vim'
-Plugin 'scrooloose/nerdtree'
-Plugin 'jistr/vim-nerdtree-tabs'
-" Plugin 'terryma/vim-multiple-cursors'
-" Plugin 'tomasr/molokai'
-Plugin 'wombat256.vim'
-Plugin 'sjl/gundo.vim'
-Plugin 'kien/ctrlp.vim'
-
-call vundle#end()
+" plugins installed
+" ctrlp.vim
+" lightline.vim
+" nerdtree.vim
+" nerdtree-tabs.vim
+" snake.vim
+" wombat256.vim
 
 filetype plugin indent on
 
@@ -21,7 +17,7 @@ set backspace=2
 " enable syntax processing
 syntax enable
 
-"UI Config
+"ui Config
 set softtabstop=4       " number of spaces in tab when editing
 set expandtab           " tabs are spaces
 set number              " show line numbers
@@ -30,56 +26,70 @@ set cursorline          " highlight current line
 set wildmenu            " visual autocomplete for command menu
 set lazyredraw          " redraw only when we need to.
 
-" Theme
+" gvim gui options
+if has('win32')
+" no tear
+set guioptions-=t
+" no menu bar
+" set guioptions-=m
+" no toolbar
+set guioptions-=T
+" no scrollbar
+set guioptions-=r
+" no tabs
+set guioptions-=e
+endif
+
+" theme
 syntax on
 set t_Co=256
 color wombat256mod
 
 " set line at 80 chars
+if has('win32')
+highlight ColorColumn guibg=gray28
+elseif has('unix')
 highlight ColorColumn ctermbg=236
+endif
 set colorcolumn=80
 
-" Searching
+" searching
 set showmatch           " highlight matching [{()}]
 set incsearch           " search as characters are entered
 set hlsearch            " highlight matches
 
-" Folding
+" folding
 set foldenable          " enable folding
 set foldlevelstart=10   " open most folds by default
 set foldnestmax=10      " 10 nested fold max
 
 " space open/closes folds
-nnoremap <space> za    
+nnoremap <space> za
 set foldmethod=indent   " fold based on indent level
 
-" Movement
 " move vertically by visual line
 nnoremap j gj
 nnoremap k gk
+
 " highlight last inserted text
 nnoremap gV `[v`]
 
-" Leader Shortcuts
+" leader shortcuts
 let mapleader=","       " leader is comma
 " toggle gundo
 " nnoremap <leader>u :GundoToggle<CR>
 " save session
 nnoremap <leader>s :mksession<CR>
 
-" CtrlP settings
-let g:ctrlp_match_window = 'bottom,order:ttb'
-let g:ctrlp_switch_buffer = 0
-let g:ctrlp_working_path_mode = 0
-let g:ctrlp_user_command = 'ag %s -l --nocolor --hidden -g ""'
-
 " nerd-tree toggle
 map <C-n> :NERDTreeToggle<CR>
 let g:NERDTreeDirArrowExpandable="+"
 let g:NERDTreeDirArrowCollapsible="~"
 " ignore temp files in NERDTree
-let NERDTreeIgnore=['\.pyc$', '\~$'] 
+let NERDTreeIgnore=['\.pyc$', '\~$']
 let NERDTreeMapOpenInTab='\r'
+"stop opening on start
+let g:nerdtree_tabs_open_on_gui_startup=0
 
 " PEP8
 au BufNewFile,BufRead *.py
@@ -96,14 +106,14 @@ au BufNewFile,BufRead *.js,*.html,*.css
     \ set softtabstop=2 |
     \ set shiftwidth=2 |
 
-" Flagging Unnecessary Whitespace
+" flagging unnecessary whitespace
 highlight BadWhitespace ctermbg=red guibg=darkred
 au BufRead,BufNewFile *.py,*.pyw,*.c,*.h match BadWhitespace /\s\+$/
 
 " UTF8 Support
 set encoding=utf-8
 
-" System clipboard
+" system clipboard
 set clipboard=unnamed
 
 " map save to ,s
@@ -132,8 +142,7 @@ vnoremap <leader>s :sort<CR>
 " lightline start
 set laststatus=2
 
-" MY CUSTOM STUFF
-
+" custom remaps
 " auto replace word in normal mode
 nnoremap <leader>r *``cgn
 " auto replace selection in visual mode
@@ -144,3 +153,15 @@ nnoremap \\ :noh<return>
 nnoremap <leader>S :mksession! ~/vim_session <CR>
 " load session
 nnoremap <leader>L :source ~/vim_session <CR>
+
+" better window navigation
+nnoremap <C-h> <C-w>h
+nnoremap <C-j> <C-w>j
+nnoremap <C-k> <C-w>k
+nnoremap <C-l> <C-w>l
+
+" disable arrow navigation
+noremap <Up> <NOP>
+noremap <Down> <NOP>
+noremap <Left> <NOP>
+noremap <Right> <NOP>
