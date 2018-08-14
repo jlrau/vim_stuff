@@ -9,7 +9,6 @@ execute pathogen#infect()
 " nerdtree-tabs.vim
 " snake.vim
 " wombat256.vim
-" conque.vim
 
 filetype plugin indent on
 
@@ -160,16 +159,3 @@ noremap <Up> <NOP>
 noremap <Down> <NOP>
 noremap <Left> <NOP>
 noremap <Right> <NOP>
-
-" Conque Terminal
-let g:ConqueTerm_PyVersion = 3
-let g:ConqueTerm_FastMode = 1
-let g:ConqueTerm_InsertOnEnter = 0
-let g:ConqueTerm_SendFileKey = '<leader>C'
-let g:ConqueTerm_SendVisKey = '<leader>c'
-let g:ConqueTerm_ReadUnfocused = 0
-if has('win32')
-nnoremap <C-c> :ConqueTermSplit cmd <CR>
-elseif has('unix')
-nnoremap <C-c> :ConqueTermSplit bash <CR>
-endif
