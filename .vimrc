@@ -3,6 +3,7 @@ runtime bundle/pathogen.vim/autoload/pathogen.vim
 execute pathogen#infect()
 
 " plugin install script:
+" mkdir ~/.vim
 " cd ~/.vim
 " git clone https://github.com/tpope/vim-pathogen.git bundle/pathogen.git
 " git clone https://github.com/kien/ctrlp.vim.git bundle/ctrlp.vim
