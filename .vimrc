@@ -1,5 +1,5 @@
 " start pathogen
-runtime bundle/pathogen.vim/pathogen.vim
+runtime bundle/pathogen.vim/autoload/pathogen.vim
 execute pathogen#infect()
 
 " plugin install script:
