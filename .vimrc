@@ -2,13 +2,13 @@
 runtime bundle/pathogen.vim/pathogen.vim
 execute pathogen#infect()
 
-" plugins installed
-" ctrlp.vim
-" lightline.vim
-" nerdtree.vim
-" nerdtree-tabs.vim
-" snake.vim
-" wombat256.vim
+" plugin install script:
+" cd ~/.vim
+" git clone https://github.com/kien/ctrlp.vim.git bundle/ctrlp.vim
+" git clone https://github.com/itchyny/lightline.vim bundle/lightline.vim
+" git clone https://github.com/scrooloose/nerdtree bundle/nerdtree.vim
+" git clone https://github.com/jistr/vim-nerdtree-tabs bundle/nerdtree-tabs.vim
+" git clone https://github.com/vim-scripts/wombat256.vim bundle/wombat256.vim
 
 filetype plugin indent on
 
