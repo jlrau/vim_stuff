@@ -5,7 +5,7 @@ execute pathogen#infect()
 " plugin install script:
 " mkdir ~/.vim
 " cd ~/.vim
-" git clone https://github.com/tpope/vim-pathogen.git bundle/pathogen.git
+" git clone https://github.com/tpope/vim-pathogen.git bundle/pathogen.vim
 " git clone https://github.com/kien/ctrlp.vim.git bundle/ctrlp.vim
 " git clone https://github.com/itchyny/lightline.vim bundle/lightline.vim
 " git clone https://github.com/scrooloose/nerdtree bundle/nerdtree.vim
