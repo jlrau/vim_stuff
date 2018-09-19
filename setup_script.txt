@@ -22,3 +22,5 @@ cd ~/
 git clone https://github.com/jlrau/vim_stuff/
 mv ~/vim_stuff/.vimrc ~/
 rm -rf ~/vim_stuff
+
+git clone https://github.com/jimeh/tmux-themepack.git ~/.tmux-themepack
